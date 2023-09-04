@@ -1,3 +1,3 @@
 # mnzuniga.github.io
 
-theme: minima
+nvm
