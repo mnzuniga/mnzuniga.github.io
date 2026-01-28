@@ -1,0 +1,76 @@
+<!doctype html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>jen's art</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="wrap">
+    <header class="header">
+      <h1 class="name">jen</h1>
+
+      <p class="subtitle">my personal artworks</p>
+      <p></p>entirely umamusume at the moment...</p>
+
+      <section class="tools">
+        <h2 class="section-title">tools</h2>
+        <p class="tools-text">procreate, ibispaintx, medibang paint pro</p>
+      </section>
+      <p class="subtitle">although truthfully these are all from procreate so far</p>
+    </header>
+
+    <section class="gallery">
+      <h2 class="section-title">gallery</h2>
+
+      <div class="grid"> 
+        <!-- this looks very silly -->
+        <figure class="card"><img src="pics/image1.png" alt="artwork 1" loading="lazy" /></figure>
+        <figure class="card"><img src="pics/image2.png" alt="artwork 2" loading="lazy" /></figure>
+        <figure class="card"><img src="pics/image3.png" alt="artwork 3" loading="lazy" /></figure>
+        <figure class="card"><img src="pics/image4.png" alt="artwork 4" loading="lazy" /></figure>
+        <figure class="card"><img src="pics/image5.png" alt="artwork 5" loading="lazy" /></figure>
+        <figure class="card"><img src="pics/image6.png" alt="artwork 6" loading="lazy" /></figure>
+        <figure class="card"><img src="pics/image7.png" alt="artwork 7" loading="lazy" /></figure>
+        <figure class="card"><img src="pics/image8.png" alt="artwork 8" loading="lazy" /></figure>
+        <figure class="card"><img src="pics/image9.png" alt="artwork 9" loading="lazy" /></figure>
+      </div>
+    </section>
+
+    <section class="nav">
+        <a href="bond.html" class="nav-button">undeterred bond</a>
+</section>
+
+  </main>
+
+  <div id="lightbox" class="lightbox hidden" aria-hidden="true">
+    <img id="lightbox-img" />
+  </div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+
+      document.querySelectorAll(".card img").forEach(img => {
+        img.addEventListener("click", () => {
+          lightboxImg.src = img.src;
+          lightbox.classList.remove("hidden");
+          lightbox.setAttribute("aria-hidden", "false");
+        });
+      });
+
+      const close = () => {
+        lightbox.classList.add("hidden");
+        lightbox.setAttribute("aria-hidden", "true");
+        lightboxImg.src = "";
+      };
+      lightbox.addEventListener("click", close);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape")
+        close();
+        });
+    });
+  </script>
+</body>
+</html>

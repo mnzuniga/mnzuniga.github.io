@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>undeterred bond</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="wrap">
+    <header class="header">
+      <h1 class="name">undeterred bond</h1>
+
+      <p class="subtitle">references and doodles of my original character because I love her</p>
+    </header>
+
+    <section class="gallery">
+      <div class="grid">
+        <figure class="card"><img src="bond/bond1.png" loading="lazy" /></figure>
+        <figure class="card"><img src="bond/bond2.png" loading="lazy" /></figure>
+        <figure class="card"><img src="bond/bond3.png" loading="lazy" /></figure>
+        <figure class="card"><img src="bond/bond4.png" loading="lazy" /></figure>
+        <figure class="card"><img src="bond/bond5.png" loading="lazy" /></figure>
+        <figure class="card"><img src="bond/bond6.png" loading="lazy" /></figure>
+        <figure class="card"><img src="bond/bond7.png" loading="lazy" /></figure>
+        <figure class="card"><img src="bond/bond8.png" loading="lazy" /></figure>
+        </div>
+    </section>
+
+    <section class="nav">
+      <a href="index.html" class="nav-button"> back to main </a>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox hidden">
+    <img id="lightbox-img" />
+  </div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+
+      document.querySelectorAll(".card img").forEach(img => {
+        img.addEventListener("click", () => {
+          lightboxImg.src = img.src;
+          lightbox.classList.remove("hidden");
+        });
+      });
+
+      const close = () => {
+        lightbox.classList.add("hidden");
+        lightboxImg.src = "";
+      };
+
+      lightbox.addEventListener("click", close);
+      document.addEventListener("keydown", e => e.key === "Escape" && close());
+    });
+  </script>
+</body>
+</html>
